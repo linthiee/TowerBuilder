@@ -8,11 +8,6 @@ public class Pendulum : MonoBehaviour
 
     private float gravity = 9.81f;
     private float amplitude = 15.0f;
-    void Start()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         float sin = Mathf.Sin(Time.time) * amplitude;
@@ -22,9 +17,5 @@ public class Pendulum : MonoBehaviour
         Vector3 euler = pivot.localEulerAngles;
         euler.z = acceleration;
         pivot.eulerAngles = euler;
-    }
-    void Update()
-    {
-
     }
 }
