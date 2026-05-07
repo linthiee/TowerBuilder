@@ -7,7 +7,7 @@ public static class ServiceLoader
 
     public static void AddService<T>(T service)
     {
-        if (!_services.ContainsKey(typeof(T)))
+        if (!_services.TryAdd(typeof(T), service))
         {
             _services.Add(typeof(T), service);
         }
