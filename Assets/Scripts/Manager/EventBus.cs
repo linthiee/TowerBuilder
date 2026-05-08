@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-public struct BlockLandedEvent
+public struct BlockLandedEvent 
 {
-    int points;
-    int perfectPoints;
+    public int points;
+    public int perfectPoints;
 }
 public interface IEventBus
 {

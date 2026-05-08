@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class TowerSlop : MonoBehaviour
 {
@@ -46,7 +47,15 @@ public class TowerSlop : MonoBehaviour
         {
             hasLanded = true;
 
-            _eventBus.Publish(new BlockLandedEvent());
+            BlockLandedEvent blockEvent = new BlockLandedEvent();
+            if (hitBlock)
+            {
+                blockEvent.points = 50;
+            }
+
+            Debug.Log($"{blockEvent.points}");
+
+            _eventBus.Publish(blockEvent);
         }
     }
 }
