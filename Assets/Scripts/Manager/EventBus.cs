@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
-
+public struct BlockLandedEvent
+{
+    int points;
+    int perfectPoints;
+}
 public interface IEventBus
 {
     void Subscribe<T>(Action<T> onEvent);
