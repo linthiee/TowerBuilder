@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+
+public struct StartGameEvent {}
+
 public struct BlockLandedEvent 
 {
     public bool groundLand;
