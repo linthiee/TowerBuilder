@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Pendulum : MonoBehaviour
@@ -7,6 +8,7 @@ public class Pendulum : MonoBehaviour
     [SerializeField] private float amplitude = 15.0f;
     [SerializeField] private GameObject slopePrefab;
     [SerializeField] private Transform spawnPosition;
+    [SerializeField] private BoxCollider slope;
 
     private IEventBus _eventBus;
     private float gravity = 9.81f;
@@ -44,6 +46,13 @@ public class Pendulum : MonoBehaviour
     private void OnBlockLanded(BlockLandedEvent eventData)
     {
         SpawnNextBlock();
+        if (!eventData.groundLand)
+            MoveRope();
+    }
+
+    private void MoveRope()
+    {
+        pivot.transform.Translate(new Vector3(0.0f, slope.size.y, 0.0f));
     }
 
     private void SpawnNextBlock()

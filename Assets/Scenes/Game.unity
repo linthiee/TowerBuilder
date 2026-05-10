@@ -220,6 +220,7 @@ MonoBehaviour:
   amplitude: 15
   slopePrefab: {fileID: 4427002383540832887, guid: b63c65d5943e72945aa66212d4be210a, type: 3}
   spawnPosition: {fileID: 230964667}
+  slope: {fileID: 8546063957916993349}
 --- !u!65 &283268557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -327,6 +328,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -452,6 +454,20 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77894a50487ecc544aa0c748c2d78eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Camera
+  cameraPos: {fileID: 330585546}
+  slope: {fileID: 8546063957916993349}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +778,7 @@ GameObject:
   - component: {fileID: 660186062}
   - component: {fileID: 660186066}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -967,6 +983,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1470603002 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6109419681964390644, guid: b63c65d5943e72945aa66212d4be210a, type: 3}
+  m_PrefabInstance: {fileID: 732805322744066156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1627905416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 26991048f79bd254bb6ed4a8156ff601, type: 3}
@@ -1055,7 +1076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e10ff4b82607404b9133d37205b7aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerSlop
-  slop: {fileID: 0}
+  slop: {fileID: 1470603002}
+--- !u!65 &8546063957916993349 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 2365057625857970263, guid: b63c65d5943e72945aa66212d4be210a, type: 3}
+  m_PrefabInstance: {fileID: 732805322744066156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 public struct BlockLandedEvent 
 {
-    public int points;
-    public int perfectPoints;
+    public bool groundLand;
 }
 public interface IEventBus
 {
