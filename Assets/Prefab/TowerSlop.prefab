@@ -155,6 +155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerSlop
   slop: {fileID: 6109419681964390644}
+  meshRenderer: {fileID: 6675869109239900456}
+  possibleMaterials:
+  - {fileID: 2100000, guid: e7dd4f2fc42762b44bbb1811be64d157, type: 2}
+  - {fileID: 2100000, guid: 8f0c710c776584e4db0ef8665235459c, type: 2}
 --- !u!1001 &4015038848909313277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -216,6 +220,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0124f4e07bf8494ba0b4802b4284a91, type: 3}
+--- !u!23 &6675869109239900456 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1504981713932161579, guid: b0124f4e07bf8494ba0b4802b4284a91, type: 3}
+  m_PrefabInstance: {fileID: 4015038848909313277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8269449226157273063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: b0124f4e07bf8494ba0b4802b4284a91, type: 3}

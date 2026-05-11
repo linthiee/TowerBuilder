@@ -7,7 +7,7 @@ public class Camera : MonoBehaviour
 
     private IEventBus _eventBus;
 
-    void Start()
+    private void Start()
     {
         _eventBus = ServiceLoader.GetService<IEventBus>();
 

@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class TowerSlop : MonoBehaviour
 {
     [SerializeField] private Rigidbody slop;
+
+    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private Material[] possibleMaterials;
 
     private bool hasLanded = false;
     private IEventBus _eventBus;
@@ -14,6 +18,13 @@ public class TowerSlop : MonoBehaviour
 
         slop.useGravity = false;
         slop.isKinematic = false;
+
+        if (possibleMaterials.Length > 0 && meshRenderer != null)
+        {
+            int randomIdx = Random.Range(0, possibleMaterials.Length);
+
+            meshRenderer.material = possibleMaterials[randomIdx];
+        }
     }
     private void Update()
     {
@@ -23,6 +34,11 @@ public class TowerSlop : MonoBehaviour
 
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
+                if (EventSystem.current.IsPointerOverGameObject())
+                {
+                    return; 
+                }
+
                 slop.useGravity = true;
                 slop.transform.parent = null;
 

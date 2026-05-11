@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 
 public struct StartGameEvent {}
+public struct ExitToMenuEvent {}
 
 public struct BlockLandedEvent 
 {

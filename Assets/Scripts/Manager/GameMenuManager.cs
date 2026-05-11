@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameMenuManager : MonoBehaviour
 {
     private IEventBus _eventBus;
+
     private void Start()
     {
         _eventBus = ServiceLoader.GetService<IEventBus>();
 
+        _eventBus.Subscribe<StartGameEvent>(OnGameStarted);
         _eventBus.Subscribe<ExitToMenuEvent>(OnBackToMenu);
     }
 
@@ -15,8 +17,14 @@ public class GameManager : MonoBehaviour
     {
         if (_eventBus != null)
         {
+            _eventBus.Unsubscribe<StartGameEvent>(OnGameStarted);
             _eventBus.Unsubscribe<ExitToMenuEvent>(OnBackToMenu);
         }
+    }
+
+    private void OnGameStarted(StartGameEvent eventData)
+    {
+        SceneManager.LoadScene("Game");
     }
 
     private void OnBackToMenu(ExitToMenuEvent eventData)
