@@ -23,6 +23,8 @@ public class TowerSlop : MonoBehaviour
         {
             int randomIdx = Random.Range(0, possibleMaterials.Length);
 
+            Debug.Log($"{randomIdx}");
+
             meshRenderer.material = possibleMaterials[randomIdx];
         }
     }
