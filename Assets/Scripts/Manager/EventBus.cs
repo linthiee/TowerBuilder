@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public struct StartGameEvent {}
 public struct ExitToMenuEvent {}
 
+public struct PerfectLandEvent {}
 public struct BlockLandedEvent 
 {
     public bool groundLand;

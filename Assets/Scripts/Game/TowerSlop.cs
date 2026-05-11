@@ -95,6 +95,8 @@ public class TowerSlop : MonoBehaviour
                     audioSource.pitch = sharedPitch;
                     audioSource.PlayOneShot(groundCollision);
 
+                    PerfectLandEvent perfectLandEvent = new PerfectLandEvent();
+                    _eventBus.Publish(perfectLandEvent);
                 }
                 else
                 {
@@ -111,7 +113,6 @@ public class TowerSlop : MonoBehaviour
 
             BlockLandedEvent blockEvent = new BlockLandedEvent();
             blockEvent.groundLand = hitGround;
-
             _eventBus.Publish(blockEvent);
         }
     }
