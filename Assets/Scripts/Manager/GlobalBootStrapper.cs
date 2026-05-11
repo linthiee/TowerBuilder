@@ -10,6 +10,9 @@ public static class GlobalBootstrapper
         IEventBus globalEventBus = new EventBus();
         ServiceLoader.AddService<IEventBus>(globalEventBus);
 
+        Object.Instantiate(Resources.Load<GameObject>("GlobalClickManager"));
+
         Debug.Log("initialized global services");
+
     }
 }
