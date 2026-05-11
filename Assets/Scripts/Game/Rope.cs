@@ -10,9 +10,14 @@ public class Pendulum : MonoBehaviour
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private BoxCollider slope;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip chainSwingLeft;
+    [SerializeField] private AudioClip chainSwingRight;
+
     private IEventBus _eventBus;
     private float gravity = 9.81f;
 
+    private int currentSwingDirection = 0;
     private void Start()
     {
         Debug.Log("2- eventBus initialized");
@@ -36,6 +41,21 @@ public class Pendulum : MonoBehaviour
     {
         float sin = Mathf.Sin(Time.time) * amplitude;
 
+        float velocity = Mathf.Cos(Time.time);
+
+        if (velocity > 0 && currentSwingDirection != 1)
+        {
+            currentSwingDirection = 1; 
+            PlayAudio(chainSwingRight);
+        }
+        else if (velocity < 0 && currentSwingDirection != -1)
+        {
+            currentSwingDirection = -1; 
+            PlayAudio(chainSwingLeft);
+        }
+
+        Debug.Log($"{sin}");
+
         float acceleration = -(gravity / rope.transform.localScale.y) * sin;
 
         Vector3 euler = pivot.localEulerAngles;
@@ -43,6 +63,10 @@ public class Pendulum : MonoBehaviour
         pivot.eulerAngles = euler;
     }
 
+    private void PlayAudio(AudioClip audio)
+    {
+        audioSource.PlayOneShot(audio);
+    }
     private void OnBlockLanded(BlockLandedEvent eventData)
     {
         SpawnNextBlock();
