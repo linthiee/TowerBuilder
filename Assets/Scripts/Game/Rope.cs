@@ -54,8 +54,6 @@ public class Pendulum : MonoBehaviour
             PlayAudio(chainSwingLeft);
         }
 
-        Debug.Log($"{sin}");
-
         float acceleration = -(gravity / rope.transform.localScale.y) * sin;
 
         Vector3 euler = pivot.localEulerAngles;
