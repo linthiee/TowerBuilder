@@ -1007,11 +1007,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5956621807706868681, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -81.000015
+      value: -71.8
       objectReference: {fileID: 0}
     - target: {fileID: 5956621807706868681, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0
+      value: 118.7
       objectReference: {fileID: 0}
     - target: {fileID: 6941376637765085889, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1059,11 +1059,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7665247649626082274, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -85.5
+      value: -85.3
       objectReference: {fileID: 0}
     - target: {fileID: 7665247649626082274, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 120
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8080084031121047468, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2657,6 +2657,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8f0c710c776584e4db0ef8665235459c, type: 2}
   audioSource: {fileID: 8546063957916993352}
   blockDropped: {fileID: 8300000, guid: c3606282e511fcf429eeb287584cdde0, type: 3}
+  groundCollision: {fileID: 8300000, guid: 6a23b63d4e9b1644daf4b1418c23bbf7, type: 3}
+  onSlopeCollision: {fileID: 8300000, guid: 7f892492c4f3a4a4091e21a3ed4b6362, type: 3}
 --- !u!65 &8546063957916993349 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 2365057625857970263, guid: b63c65d5943e72945aa66212d4be210a, type: 3}
@@ -2674,7 +2676,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 244777663598496263, guid: b3c0c2c46108b3d488eec0a5a46bcbee, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

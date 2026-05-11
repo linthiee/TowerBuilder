@@ -1,4 +1,3 @@
-using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -12,6 +11,8 @@ public class TowerSlop : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip blockDropped;
+    [SerializeField] private AudioClip groundCollision;
+    [SerializeField] private AudioClip onSlopeCollision;
 
     private bool hasLanded = false;
     private IEventBus _eventBus;
@@ -68,6 +69,15 @@ public class TowerSlop : MonoBehaviour
 
         if ((hitBlock || hitGround) && slop.transform.parent == null)
         {
+            if (hitBlock)
+            {
+                audioSource.PlayOneShot(groundCollision);
+            }
+            else
+            {
+                audioSource.PlayOneShot(onSlopeCollision);
+            }
+
             hasLanded = true;
 
             BlockLandedEvent blockEvent = new BlockLandedEvent();
