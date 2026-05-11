@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -8,6 +9,9 @@ public class TowerSlop : MonoBehaviour
 
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Material[] possibleMaterials;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip blockDropped;
 
     private bool hasLanded = false;
     private IEventBus _eventBus;
@@ -40,6 +44,8 @@ public class TowerSlop : MonoBehaviour
                 {
                     return; 
                 }
+
+                audioSource.PlayOneShot(blockDropped);
 
                 slop.useGravity = true;
                 slop.transform.parent = null;
