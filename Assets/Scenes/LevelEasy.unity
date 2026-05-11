@@ -603,6 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Camera
   cameraPos: {fileID: 330585546}
   slope: {fileID: 8546063957916993349}
+  shakeTime: 0.3
 --- !u!1 &357760359 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 26991048f79bd254bb6ed4a8156ff601, type: 3}
@@ -783,10 +784,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -804,7 +805,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 330585545}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1174,6 +1175,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8837035276933311173, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837035276933311173, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837035276933311173, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837035276933311173, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1183,7 +1196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8837035276933311173, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -99.1864
+      value: -106.12
       objectReference: {fileID: 0}
     - target: {fileID: 8837035276933311173, guid: 18441269e64f90b40875961bd763e5cd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2659,6 +2672,7 @@ MonoBehaviour:
   blockDropped: {fileID: 8300000, guid: c3606282e511fcf429eeb287584cdde0, type: 3}
   groundCollision: {fileID: 8300000, guid: 6a23b63d4e9b1644daf4b1418c23bbf7, type: 3}
   onSlopeCollision: {fileID: 8300000, guid: 7f892492c4f3a4a4091e21a3ed4b6362, type: 3}
+  snapTolerance: 0.5
 --- !u!65 &8546063957916993349 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 2365057625857970263, guid: b63c65d5943e72945aa66212d4be210a, type: 3}

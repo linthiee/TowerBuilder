@@ -9,7 +9,10 @@ public class GameMenuManager : MonoBehaviour
     {
         _eventBus = ServiceLoader.GetService<IEventBus>();
 
-        _eventBus.Subscribe<StartGameEvent>(OnGameStarted);
+        _eventBus.Subscribe<EasyLevelEvent>(OnEasyLevelSelected);
+        _eventBus.Subscribe<MediumLevelEvent>(OnMediumLevelSelected);
+        _eventBus.Subscribe<HardLevelEvent>(OnHardLevelSelected);
+
         _eventBus.Subscribe<ExitToMenuEvent>(OnBackToMenu);
     }
 
@@ -17,14 +20,26 @@ public class GameMenuManager : MonoBehaviour
     {
         if (_eventBus != null)
         {
-            _eventBus.Unsubscribe<StartGameEvent>(OnGameStarted);
+            _eventBus.Unsubscribe<EasyLevelEvent>(OnEasyLevelSelected);
+            _eventBus.Unsubscribe<MediumLevelEvent>(OnMediumLevelSelected);
+            _eventBus.Unsubscribe<HardLevelEvent>(OnHardLevelSelected);
             _eventBus.Unsubscribe<ExitToMenuEvent>(OnBackToMenu);
         }
     }
 
-    private void OnGameStarted(StartGameEvent eventData)
+    private void OnEasyLevelSelected(EasyLevelEvent eventData)
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("LevelEasy");
+    }
+
+    private void OnMediumLevelSelected(MediumLevelEvent eventData)
+    {
+        SceneManager.LoadScene("LevelMedium");
+    }
+
+    private void OnHardLevelSelected(HardLevelEvent eventData)
+    {
+        SceneManager.LoadScene("LevelHard");
     }
 
     private void OnBackToMenu(ExitToMenuEvent eventData)

@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 
-public struct StartGameEvent {}
+public struct EasyLevelEvent {}
+public struct MediumLevelEvent {}
+public struct HardLevelEvent {}
+
 public struct ExitToMenuEvent {}
 
 public struct PerfectLandEvent {}
