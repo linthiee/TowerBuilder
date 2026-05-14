@@ -12,14 +12,15 @@ public class Camera : MonoBehaviour
 
     private float shakeAmount = 0.1f;
 
-    private Vector3 originalPos = Vector3.zero;
-
+    private Vector3 targetPos = Vector3.zero;
     private void Start()
     {
         _eventBus = ServiceLoader.GetService<IEventBus>();
 
         _eventBus.Subscribe<BlockLandedEvent>(OnBlockLanded);
         _eventBus.Subscribe<PerfectLandEvent>(OnPerfectLand);
+
+        targetPos = cameraPos.position;
     }
 
     private void Update()
@@ -30,13 +31,8 @@ public class Camera : MonoBehaviour
         }
         else if (shakeDuration > 0)
         {
-            cameraPos.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+            cameraPos.position = targetPos + Random.insideUnitSphere * shakeAmount;
             shakeDuration -= Time.deltaTime;
-        }
-        else
-        {
-            shakeDuration = 0f;
-            cameraPos.localPosition = originalPos;
         }
     }
 
@@ -53,7 +49,6 @@ public class Camera : MonoBehaviour
         Debug.Log("camera shake event called");
 
         shakeDuration = shakeTime;
-        originalPos = cameraPos.position;
     }
 
     private void OnBlockLanded(BlockLandedEvent eventData)
@@ -64,7 +59,11 @@ public class Camera : MonoBehaviour
 
     private void MoveCamera()
     {
-        originalPos.y += slope.size.y;
-        cameraPos.position = originalPos;
+        targetPos += new Vector3(0, slope.size.y, 0);
+
+        if (shakeDuration <= 0)
+        {
+            cameraPos.position = targetPos;
+        }
     }
 }
