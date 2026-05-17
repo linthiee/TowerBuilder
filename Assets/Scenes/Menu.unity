@@ -954,6 +954,7 @@ MonoBehaviour:
   sliderMaster: {fileID: 1519613395}
   sliderMusic: {fileID: 1219517519}
   sliderVFX: {fileID: 1199112051}
+  settingsSO: {fileID: 0}
   mixer: {fileID: 24100000, guid: b3c0c2c46108b3d488eec0a5a46bcbee, type: 2}
 --- !u!4 &696735210
 Transform:
@@ -3284,6 +3285,10 @@ PrefabInstance:
     - target: {fileID: 4203661786201326369, guid: 13bed17e69c90c14f957c51cbf4a0f23, type: 3}
       propertyPath: m_Name
       value: GlobalClickManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641849411359942410, guid: 13bed17e69c90c14f957c51cbf4a0f23, type: 3}
+      propertyPath: m_Volume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

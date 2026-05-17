@@ -74,7 +74,7 @@ public class Pendulum : MonoBehaviour
 
     private void MoveRope()
     {
-        pivot.transform.Translate(new Vector3(0.0f, slope.size.y, 0.0f));
+        pivot.position += new Vector3(0.0f, slope.size.y, 0.0f);
     }
 
     private void SpawnNextBlock()

@@ -1,18 +1,20 @@
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform cameraPos;
     [SerializeField] private BoxCollider slope;
 
+    [SerializeField] private float smoothSpeed = 5f;
+    public float shakeTime = 0.3f;
+    [SerializeField] private float shakeAmount = 0.1f;
+
     private IEventBus _eventBus;
 
     private float shakeDuration = 0f;
-    public float shakeTime = 0.3f;
-
-    private float shakeAmount = 0.1f;
-
     private Vector3 targetPos = Vector3.zero;
+    private Vector3 originalPos = Vector3.zero; 
+
     private void Start()
     {
         _eventBus = ServiceLoader.GetService<IEventBus>();
@@ -21,19 +23,21 @@ public class Camera : MonoBehaviour
         _eventBus.Subscribe<PerfectLandEvent>(OnPerfectLand);
 
         targetPos = cameraPos.position;
+        originalPos = targetPos;
     }
 
     private void Update()
     {
-        if (shakeDuration == 0)
+        originalPos = Vector3.Lerp(originalPos, targetPos, Time.deltaTime * smoothSpeed);
+
+        Vector3 shakeOffset = Vector3.zero;
+        if (shakeDuration > 0)
         {
-            return;
-        }
-        else if (shakeDuration > 0)
-        {
-            cameraPos.position = targetPos + Random.insideUnitSphere * shakeAmount;
+            shakeOffset = Random.insideUnitSphere * shakeAmount;
             shakeDuration -= Time.deltaTime;
         }
+
+        cameraPos.position = originalPos + shakeOffset;
     }
 
     private void OnDestroy()
@@ -44,10 +48,10 @@ public class Camera : MonoBehaviour
             _eventBus.Unsubscribe<PerfectLandEvent>(OnPerfectLand);
         }
     }
+
     private void OnPerfectLand(PerfectLandEvent @event)
     {
         Debug.Log("camera shake event called");
-
         shakeDuration = shakeTime;
     }
 
@@ -60,10 +64,5 @@ public class Camera : MonoBehaviour
     private void MoveCamera()
     {
         targetPos += new Vector3(0, slope.size.y, 0);
-
-        if (shakeDuration <= 0)
-        {
-            cameraPos.position = targetPos;
-        }
     }
 }

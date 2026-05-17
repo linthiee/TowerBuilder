@@ -91,7 +91,7 @@ public class TowerSlop : MonoBehaviour
 
                     Debug.Log("perfect snap!");
 
-                    sharedPitch += 0.05f;
+                    sharedPitch += 0.15f;
                     audioSource.pitch = sharedPitch;
                     audioSource.PlayOneShot(groundCollision);
 
