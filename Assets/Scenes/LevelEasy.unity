@@ -4280,6 +4280,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 37852001798288442, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 330585545}
+    - target: {fileID: 66208353750784479, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1703.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 66208353750784479, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -969.807
+      objectReference: {fileID: 0}
+    - target: {fileID: 66208353750784479, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -861.9592
+      objectReference: {fileID: 0}
+    - target: {fileID: 66208353750784479, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 486.86972
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391329268693634646, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1632.044
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391329268693634646, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -974.105
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391329268693634646, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 810.86707
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391329268693634646, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 489.018
+      objectReference: {fileID: 0}
     - target: {fileID: 4427637470781501734, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
       propertyPath: buttonExit
       value: 
