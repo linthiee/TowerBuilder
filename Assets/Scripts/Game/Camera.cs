@@ -5,12 +5,14 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform cameraPos;
     [SerializeField] private BoxCollider slope;
 
+    [Header("Movement")]
     [SerializeField] private float smoothSpeed = 5f;
     public float shakeTime = 0.3f;
     [SerializeField] private float shakeAmount = 0.1f;
 
     private IEventBus _eventBus;
 
+    [Header("Movement")]
     private float shakeDuration = 0f;
     private Vector3 targetPos = Vector3.zero;
     private Vector3 originalPos = Vector3.zero; 

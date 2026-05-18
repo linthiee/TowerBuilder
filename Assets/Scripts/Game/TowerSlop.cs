@@ -5,23 +5,25 @@ using UnityEngine.InputSystem;
 
 public class TowerSlop : MonoBehaviour
 {
+    [SerializeField] private BlockSettingsSO settings;
+
+    [Header("Materials")]
+    public Material[] possibleMaterials;
+
+    [Header("Components")]
     [SerializeField] private Rigidbody slop;
-
     [SerializeField] private MeshRenderer meshRenderer;
-    [SerializeField] private Material[] possibleMaterials;
-
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip blockDropped;
-    [SerializeField] private AudioClip groundCollision;
-    [SerializeField] private AudioClip onSlopeCollision;
 
-    [SerializeField] private float snapTolerance = 0.5f;
-
-    private int towerHeight = 0;
-
+    [Header("State variables")]
+    private static int towerHeight = 0;
     private static float sharedPitch = 1.0f;
+    private static bool isGameOver = false;
 
+    [Header("Collision Info")]
     private bool hasLanded = false;
+    private bool isBaseBlock = false;
+
     private IEventBus _eventBus;
 
     private void Start()
@@ -30,6 +32,11 @@ public class TowerSlop : MonoBehaviour
 
         slop.useGravity = false;
         slop.isKinematic = false;
+
+        if (towerHeight == 0)
+        {
+            isGameOver = false;
+        }
 
         if (possibleMaterials.Length > 0 && meshRenderer != null)
         {
@@ -53,7 +60,7 @@ public class TowerSlop : MonoBehaviour
                     return;
                 }
 
-                audioSource.PlayOneShot(blockDropped);
+                audioSource.PlayOneShot(settings.blockDropped);
 
                 slop.useGravity = true;
                 slop.transform.parent = null;
@@ -68,12 +75,17 @@ public class TowerSlop : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (isGameOver)
+            return;
+
         bool hitBlock = collision.gameObject.TryGetComponent(out TowerSlop collidedBlock);
         bool hitGround = collision.gameObject.TryGetComponent(out Ground _);
-        
-        if (hitGround && towerHeight >= 1)
+
+        if (hitGround && towerHeight >= 1 && !isBaseBlock)
         {
+            isGameOver = true;
             _eventBus.Publish(new TowerFallEvent());
+            return;
         }
 
         if (hasLanded)
@@ -83,11 +95,16 @@ public class TowerSlop : MonoBehaviour
 
         if ((hitBlock || hitGround) && slop.transform.parent == null)
         {
+            if (hitGround && towerHeight == 0)
+            {
+                isBaseBlock = true;
+            }
+
             if (hitBlock)
             {
                 float distanceX = Mathf.Abs(transform.position.x - collidedBlock.transform.position.x);
 
-                if (distanceX <= snapTolerance)
+                if (distanceX <= settings.snapTolerance)
                 {
                     Vector3 perfectPos = transform.position;
                     perfectPos.x = collidedBlock.transform.position.x;
@@ -102,7 +119,7 @@ public class TowerSlop : MonoBehaviour
 
                     sharedPitch += 0.15f;
                     audioSource.pitch = sharedPitch;
-                    audioSource.PlayOneShot(groundCollision);
+                    audioSource.PlayOneShot(settings.groundCollision);
 
                     PerfectLandEvent perfectLandEvent = new PerfectLandEvent();
                     perfectLandEvent.points = 250;
@@ -114,12 +131,12 @@ public class TowerSlop : MonoBehaviour
                 else
                 {
                     audioSource.pitch = 1.0f;
-                    audioSource.PlayOneShot(groundCollision);
+                    audioSource.PlayOneShot(settings.groundCollision);
                 }
             }
             else
             {
-                audioSource.PlayOneShot(onSlopeCollision);
+                audioSource.PlayOneShot(settings.onSlopeCollision);
             }
 
             hasLanded = true;

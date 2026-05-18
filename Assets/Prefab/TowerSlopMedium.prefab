@@ -89,6 +89,10 @@ PrefabInstance:
       value: TowerSlopMedium
       objectReference: {fileID: 0}
     - target: {fileID: 6187693183493369262, guid: b63c65d5943e72945aa66212d4be210a, type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 291ed9137fa0eb143a0cd47360be23a2, type: 2}
+    - target: {fileID: 6187693183493369262, guid: b63c65d5943e72945aa66212d4be210a, type: 3}
       propertyPath: meshRenderer
       value: 
       objectReference: {fileID: 2468810611897824745}

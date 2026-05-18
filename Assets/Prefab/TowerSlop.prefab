@@ -155,15 +155,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e10ff4b82607404b9133d37205b7aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerSlop
-  slop: {fileID: 6109419681964390644}
-  meshRenderer: {fileID: 6675869109239900456}
+  settings: {fileID: 11400000, guid: 291ed9137fa0eb143a0cd47360be23a2, type: 2}
   possibleMaterials:
   - {fileID: 2100000, guid: e7dd4f2fc42762b44bbb1811be64d157, type: 2}
   - {fileID: 2100000, guid: 8f0c710c776584e4db0ef8665235459c, type: 2}
+  slop: {fileID: 6109419681964390644}
+  meshRenderer: {fileID: 6675869109239900456}
   audioSource: {fileID: 3084923116673557139}
-  blockDropped: {fileID: 8300000, guid: c3606282e511fcf429eeb287584cdde0, type: 3}
-  groundCollision: {fileID: 8300000, guid: 6a23b63d4e9b1644daf4b1418c23bbf7, type: 3}
-  onSlopeCollision: {fileID: 8300000, guid: 7f892492c4f3a4a4091e21a3ed4b6362, type: 3}
 --- !u!82 &3084923116673557139
 AudioSource:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class GlobalClickManager : MonoBehaviour
 {
+    [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip clickSound;
 

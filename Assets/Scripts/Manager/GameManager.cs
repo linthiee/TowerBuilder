@@ -5,12 +5,16 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Instance singleton")]
+    public static GameManager Instance { get; private set; }
+
     public GameDifficulty difficulty;
 
+    [Header("Player info")]
     [SerializeField] private PlayerScoreSO scoreSO;
-
     [SerializeField] private Pendulum player;
 
+    [Header("Player ingame info")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private TextMeshProUGUI strikesText;
@@ -24,6 +28,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        Instance = this;
+
         scoreSO.LoadSettings();
     }
     private void Start()
@@ -38,11 +49,6 @@ public class GameManager : MonoBehaviour
         _eventBus.Subscribe<EndGameEvent>(OnGameEnd);
 
         PrintHighscore();
-    }
-
-    private void OnTowerFall(TowerFallEvent @event)
-    {
-        throw new NotImplementedException();
     }
 
     private void PrintHighscore()

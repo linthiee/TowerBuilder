@@ -678,6 +678,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8755974725033377836, guid: 1ae999375119361448720ac7a6881403, type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 291ed9137fa0eb143a0cd47360be23a2, type: 2}
+    - target: {fileID: 8755974725033377836, guid: 1ae999375119361448720ac7a6881403, type: 3}
       propertyPath: snapTolerance
       value: 0.3
       objectReference: {fileID: 0}

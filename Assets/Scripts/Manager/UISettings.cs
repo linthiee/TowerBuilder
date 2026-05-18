@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class UISettings : MonoBehaviour
 {
+    [Header("Sliders")]
     [SerializeField] private Slider sliderMaster;
     [SerializeField] private Slider sliderMusic;
     [SerializeField] private Slider sliderVFX;

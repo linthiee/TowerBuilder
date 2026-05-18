@@ -3,17 +3,22 @@ using UnityEngine;
 
 public class Pendulum : MonoBehaviour
 {
+    [Header("Rope movement")]
     [SerializeField] private GameObject rope;
     [SerializeField] private Transform pivot;
     [SerializeField] private float amplitude = 15.0f;
+
+    [Header("Handle slope spawner")]
     [SerializeField] private GameObject slopePrefab;
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private BoxCollider slope;
 
+    [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip chainSwingLeft;
     [SerializeField] private AudioClip chainSwingRight;
 
+    [Header("Ingame variables")]
     public int score;
     public int strikes;
 

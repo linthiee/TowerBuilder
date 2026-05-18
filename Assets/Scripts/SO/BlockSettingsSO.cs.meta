@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 91602b8d0f1079d4ea93c6f959a4c708
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - blockDropped: {fileID: 8300000, guid: c3606282e511fcf429eeb287584cdde0, type: 3}
+  - groundCollision: {fileID: 8300000, guid: 6a23b63d4e9b1644daf4b1418c23bbf7, type: 3}
+  - onSlopeCollision: {fileID: 8300000, guid: 7f892492c4f3a4a4091e21a3ed4b6362, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91602b8d0f1079d4ea93c6f959a4c708, type: 3}
+  m_Name: BlockSettings
+  m_EditorClassIdentifier: Assembly-CSharp::BlockSettingsSO
+  blockDropped: {fileID: 8300000, guid: c3606282e511fcf429eeb287584cdde0, type: 3}
+  groundCollision: {fileID: 8300000, guid: 6a23b63d4e9b1644daf4b1418c23bbf7, type: 3}
+  onSlopeCollision: {fileID: 8300000, guid: 7f892492c4f3a4a4091e21a3ed4b6362, type: 3}
+  snapTolerance: 0.5
+  normalPoints: 100
+  perfectPoints: 250
