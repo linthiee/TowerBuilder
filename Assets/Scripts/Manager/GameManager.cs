@@ -100,17 +100,24 @@ public class GameManager : MonoBehaviour
     }
     private void OnBackToMenu(ExitToMenuEvent eventData)
     {
-        SceneManager.LoadScene("Menu");
+        Debug.Log("OnBackToMenu called");
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync("Menu");
     }
 
     public void OnGameEnd(EndGameEvent eventData)
     {
+        scoreSO.CheckAndSaveHighScore(difficulty, player.score);
+        Debug.Log("OnGameEnd called");
+
 #if UNITY_EDITOR
-        Debug.Log("quitting");
-        Debug.Log("saving score...");
-        scoreSO.CheckAndSaveHighScore(difficulty, player.score);
+        Time.timeScale = 1f;
+        Debug.Log("quitting...");
+        SceneManager.LoadSceneAsync("Menu");
+#elif UNITY_WEBGL
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync("Menu");
 #else
-        scoreSO.CheckAndSaveHighScore(difficulty, player.score);
         Application.Quit();
 #endif
     }
