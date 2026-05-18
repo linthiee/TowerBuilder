@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,16 +16,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI strikesText;
     [SerializeField] private TextMeshProUGUI towerHeightText;
 
+    [SerializeField] private GameObject defeatPannel;
+
     private int towerHeight = 0;
 
     private IEventBus _eventBus;
 
     private void Awake()
-    {     
+    {
         scoreSO.LoadSettings();
     }
     private void Start()
     {
+        Application.wantsToQuit += WantsToQuit;
+
         _eventBus = ServiceLoader.GetService<IEventBus>();
 
         _eventBus.Subscribe<ExitToMenuEvent>(OnBackToMenu);
@@ -33,6 +38,11 @@ public class GameManager : MonoBehaviour
         _eventBus.Subscribe<EndGameEvent>(OnGameEnd);
 
         PrintHighscore();
+    }
+
+    private void OnTowerFall(TowerFallEvent @event)
+    {
+        throw new NotImplementedException();
     }
 
     private void PrintHighscore()
@@ -76,8 +86,20 @@ public class GameManager : MonoBehaviour
 
     public void OnGameEnd(EndGameEvent eventData)
     {
+#if UNITY_EDITOR
+        Debug.Log("quitting");
         Debug.Log("saving score...");
         scoreSO.CheckAndSaveHighScore(difficulty, player.score);
+#else
+        scoreSO.CheckAndSaveHighScore(difficulty, player.score);
+        Application.Quit();
+#endif
+    }
+
+    private bool WantsToQuit()
+    {
+        scoreSO.CheckAndSaveHighScore(difficulty, player.score);
+        return true;
     }
 
     private void OnDestroy()
@@ -89,5 +111,6 @@ public class GameManager : MonoBehaviour
             _eventBus.Unsubscribe<BlockLandedEvent>(OnBlockLand);
             _eventBus.Unsubscribe<EndGameEvent>(OnGameEnd);
         }
+        Application.wantsToQuit -= WantsToQuit;
     }
 }

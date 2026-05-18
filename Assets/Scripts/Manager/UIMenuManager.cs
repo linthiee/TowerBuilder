@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class UIMenuManager : MonoBehaviour
 {
+    GameManager gameManager;
+
     [SerializeField] private Button buttonPlay;
 
     [SerializeField] private Button buttonSettings;
@@ -70,8 +74,7 @@ public class UIMenuManager : MonoBehaviour
 
     private void OnExitClicked()
     {
-        Debug.Log("quitting");
-        Application.Quit();
+        _eventBus.Publish(new EndGameEvent());
     }
 
     private void OnEasyClicked()

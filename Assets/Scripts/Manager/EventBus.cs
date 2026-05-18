@@ -22,6 +22,7 @@ public struct BlockLandedEvent
 
 public struct UpdateCanvasEvent { }
 public struct EndGameEvent { }
+public struct TowerFallEvent { }
 
 public interface IEventBus
 {

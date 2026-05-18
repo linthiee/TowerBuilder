@@ -1,15 +1,21 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class UIGameplay : MonoBehaviour
 {
     [SerializeField] private GameObject panelPause;
     [SerializeField] private GameObject panelSettings;
+    [SerializeField] private GameObject panelDefeat;
 
     [SerializeField] private Button buttonSettings;
     [SerializeField] private Button buttonExit;
 
     [SerializeField] private Button buttonSettingsExit;
+
+    [SerializeField] private Button buttonDefeatExit;
+    [SerializeField] private Button buttonRetry;
 
     private IEventBus _eventBus;
 
@@ -23,8 +29,14 @@ public class UIGameplay : MonoBehaviour
 
         buttonSettingsExit.onClick.AddListener(OnBackFromSettingsClicked);
 
+        buttonDefeatExit.onClick.AddListener(OnExitClicked);
+        buttonRetry.onClick.AddListener(OnRetryClicked);
+
         panelPause.SetActive(false);
         panelSettings.SetActive(false);
+        panelDefeat.SetActive(false);
+
+        _eventBus.Subscribe<TowerFallEvent>(OnTowerFall);
     }
 
     private void Update()
@@ -39,7 +51,22 @@ public class UIGameplay : MonoBehaviour
         buttonSettings.onClick.RemoveAllListeners();
         buttonExit.onClick.RemoveAllListeners();
         buttonSettingsExit.onClick.RemoveAllListeners();
+        buttonDefeatExit.onClick.RemoveAllListeners();
+        buttonRetry.onClick.RemoveAllListeners();
+
+        if (_eventBus != null)
+        {
+            _eventBus.Unsubscribe<TowerFallEvent>(OnTowerFall);
+        }
     }
+    private void OnTowerFall(TowerFallEvent eventData)
+    {
+        Time.timeScale = 0;
+
+        Debug.Log("tower fall event");
+        panelDefeat.SetActive(true);
+    }
+
     private void TogglePause()
     {
         isPaused = !isPaused;
@@ -52,6 +79,13 @@ public class UIGameplay : MonoBehaviour
         }
     }
 
+    private void OnRetryClicked()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        panelDefeat.SetActive(false);
+    }
+
     private void OnBackFromSettingsClicked()
     {
         panelSettings.SetActive(false);
@@ -60,7 +94,7 @@ public class UIGameplay : MonoBehaviour
 
     private void OnExitClicked()
     {
-        if (isPaused)
+        if (isPaused || panelDefeat.gameObject.activeInHierarchy)
         {
             Time.timeScale = 1.0f;
 

@@ -17,6 +17,8 @@ public class TowerSlop : MonoBehaviour
 
     [SerializeField] private float snapTolerance = 0.5f;
 
+    private int towerHeight = 0;
+
     private static float sharedPitch = 1.0f;
 
     private bool hasLanded = false;
@@ -66,12 +68,17 @@ public class TowerSlop : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (hasLanded)
-            return;
-
         bool hitBlock = collision.gameObject.TryGetComponent(out TowerSlop collidedBlock);
         bool hitGround = collision.gameObject.TryGetComponent(out Ground _);
+        
+        if (hitGround && towerHeight >= 1)
+        {
+            _eventBus.Publish(new TowerFallEvent());
+        }
 
+        if (hasLanded)
+            return;
+        
         bool perfectSnap = false;
 
         if ((hitBlock || hitGround) && slop.transform.parent == null)
@@ -123,6 +130,8 @@ public class TowerSlop : MonoBehaviour
             blockEvent.blockLand = !perfectSnap;
 
             blockEvent.points = 100;
+
+            towerHeight++;
 
             _eventBus.Publish(blockEvent);
         }
