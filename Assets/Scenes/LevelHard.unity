@@ -2057,6 +2057,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+--- !u!114 &612663993 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8230897706687648044, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+  m_PrefabInstance: {fileID: 612663992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &612663994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5936519373380003363, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+  m_PrefabInstance: {fileID: 612663992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &612663995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 662167652730924727, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+  m_PrefabInstance: {fileID: 612663992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &612663996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2268018163460994777, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+  m_PrefabInstance: {fileID: 612663992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &660186060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3553,6 +3597,39 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 446953493330819885, guid: b9eff109a6f2e5a468294c3a0fd84636, type: 3}
   m_PrefabInstance: {fileID: 1696136769}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1696136773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1075974886497746088, guid: b9eff109a6f2e5a468294c3a0fd84636, type: 3}
+  m_PrefabInstance: {fileID: 1696136769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &1696136774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2936106248044312143, guid: b9eff109a6f2e5a468294c3a0fd84636, type: 3}
+  m_PrefabInstance: {fileID: 1696136769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &1696136775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8991007601507897155, guid: b9eff109a6f2e5a468294c3a0fd84636, type: 3}
+  m_PrefabInstance: {fileID: 1696136769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1712071151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,10 +3753,10 @@ MonoBehaviour:
   difficulty: 2
   scoreSO: {fileID: 11400000, guid: cb700785078f029419460740f7cd3932, type: 2}
   player: {fileID: 283268556}
-  scoreText: {fileID: 0}
-  highScoreText: {fileID: 0}
-  strikesText: {fileID: 0}
-  towerHeightText: {fileID: 0}
+  scoreText: {fileID: 612663996}
+  highScoreText: {fileID: 612663995}
+  strikesText: {fileID: 612663994}
+  towerHeightText: {fileID: 612663993}
 --- !u!4 &1760906833
 Transform:
   m_ObjectHideFlags: 0
@@ -3921,9 +3998,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5216d663c6d2f2841b04562dfc75b7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UISettings
-  sliderMaster: {fileID: 0}
-  sliderMusic: {fileID: 0}
-  sliderVFX: {fileID: 0}
+  sliderMaster: {fileID: 1696136775}
+  sliderMusic: {fileID: 1696136774}
+  sliderVFX: {fileID: 1696136773}
   settingsSO: {fileID: 11400000, guid: dcd6ec80dfd43bd4c997c9e94055bcd4, type: 2}
   mixer: {fileID: 24100000, guid: b3c0c2c46108b3d488eec0a5a46bcbee, type: 2}
 --- !u!4 &1924357903

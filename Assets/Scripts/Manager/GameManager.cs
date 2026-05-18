@@ -31,6 +31,22 @@ public class GameManager : MonoBehaviour
         _eventBus.Subscribe<PerfectLandEvent>(OnPerfectLand);
         _eventBus.Subscribe<BlockLandedEvent>(OnBlockLand);
         _eventBus.Subscribe<EndGameEvent>(OnGameEnd);
+
+        PrintHighscore();
+    }
+
+    private void PrintHighscore()
+    {
+        int savedRecord = scoreSO.GetHighScore(difficulty);
+
+        if (player.score > savedRecord)
+        {
+            highScoreText.text = player.score.ToString();
+        }
+        else
+        {
+            highScoreText.text = savedRecord.ToString();
+        }
     }
 
     private void OnBlockLand(BlockLandedEvent eventData)
@@ -41,15 +57,7 @@ public class GameManager : MonoBehaviour
         towerHeight++;
         player.score += eventData.points;
 
-        int savedRecord = scoreSO.GetHighScore(difficulty);
-        if (player.score > savedRecord)
-        {
-            highScoreText.text = player.score.ToString();
-        }
-        else
-        {
-            highScoreText.text = savedRecord.ToString();
-        }
+        PrintHighscore();
 
         scoreText.text = player.score.ToString();
         towerHeightText.text = towerHeight.ToString();
