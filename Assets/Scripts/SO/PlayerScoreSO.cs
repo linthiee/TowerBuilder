@@ -40,11 +40,17 @@ public class PlayerScoreSO : ScriptableObject
         switch (difficulty)
         {
             case GameDifficulty.Easy: 
+
                 return easyScore;
+
             case GameDifficulty.Medium: 
+
                 return mediumScore;
+
             case GameDifficulty.Hard: 
+
                 return hardScore;
+
             default: 
                 return 0;
         }
@@ -55,13 +61,19 @@ public class PlayerScoreSO : ScriptableObject
         switch (difficulty)
         {
             case GameDifficulty.Easy:
+
                 easyScore = score;
+
                 break;
             case GameDifficulty.Medium: 
+
                 mediumScore = score; 
+
                 break;
             case GameDifficulty.Hard:
+
                 hardScore = score; 
+
                 break;
         }
     }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
@@ -32,11 +31,6 @@ public class TowerSlop : MonoBehaviour
 
         slop.useGravity = false;
         slop.isKinematic = false;
-
-        if (towerHeight == 0)
-        {
-            isGameOver = false;
-        }
 
         if (possibleMaterials.Length > 0 && meshRenderer != null)
         {
@@ -152,5 +146,12 @@ public class TowerSlop : MonoBehaviour
 
             _eventBus.Publish(blockEvent);
         }
+    }
+
+    public static void ResetTowerState()
+    {
+        towerHeight = 0;
+        sharedPitch = 1.0f;
+        isGameOver = false;
     }
 }

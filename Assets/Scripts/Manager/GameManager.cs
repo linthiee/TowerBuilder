@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,6 +34,8 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
 
+        TowerSlop.ResetTowerState();
+
         scoreSO.LoadSettings();
     }
     private void Start()
@@ -49,6 +50,18 @@ public class GameManager : MonoBehaviour
         _eventBus.Subscribe<EndGameEvent>(OnGameEnd);
 
         PrintHighscore();
+    }
+
+    private void OnDestroy()
+    {
+        if (_eventBus != null)
+        {
+            _eventBus.Unsubscribe<ExitToMenuEvent>(OnBackToMenu);
+            _eventBus.Unsubscribe<PerfectLandEvent>(OnPerfectLand);
+            _eventBus.Unsubscribe<BlockLandedEvent>(OnBlockLand);
+            _eventBus.Unsubscribe<EndGameEvent>(OnGameEnd);
+        }
+        Application.wantsToQuit -= WantsToQuit;
     }
 
     private void PrintHighscore()
@@ -106,17 +119,5 @@ public class GameManager : MonoBehaviour
     {
         scoreSO.CheckAndSaveHighScore(difficulty, player.score);
         return true;
-    }
-
-    private void OnDestroy()
-    {
-        if (_eventBus != null)
-        {
-            _eventBus.Unsubscribe<ExitToMenuEvent>(OnBackToMenu);
-            _eventBus.Unsubscribe<PerfectLandEvent>(OnPerfectLand);
-            _eventBus.Unsubscribe<BlockLandedEvent>(OnBlockLand);
-            _eventBus.Unsubscribe<EndGameEvent>(OnGameEnd);
-        }
-        Application.wantsToQuit -= WantsToQuit;
     }
 }
