@@ -72,6 +72,8 @@ public class TowerSlop : MonoBehaviour
         bool hitBlock = collision.gameObject.TryGetComponent(out TowerSlop collidedBlock);
         bool hitGround = collision.gameObject.TryGetComponent(out Ground _);
 
+        bool perfectSnap = false;
+
         if ((hitBlock || hitGround) && slop.transform.parent == null)
         {
             if (hitBlock)
@@ -96,6 +98,10 @@ public class TowerSlop : MonoBehaviour
                     audioSource.PlayOneShot(groundCollision);
 
                     PerfectLandEvent perfectLandEvent = new PerfectLandEvent();
+                    perfectLandEvent.points = 250;
+
+                    perfectSnap = true;
+
                     _eventBus.Publish(perfectLandEvent);
                 }
                 else
@@ -112,7 +118,12 @@ public class TowerSlop : MonoBehaviour
             hasLanded = true;
 
             BlockLandedEvent blockEvent = new BlockLandedEvent();
+
             blockEvent.groundLand = hitGround;
+            blockEvent.blockLand = !perfectSnap;
+
+            blockEvent.points = 100;
+
             _eventBus.Publish(blockEvent);
         }
     }

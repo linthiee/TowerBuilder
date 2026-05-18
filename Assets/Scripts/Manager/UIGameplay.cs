@@ -1,8 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-
 public class UIGameplay : MonoBehaviour
 {
     [SerializeField] private GameObject panelPause;

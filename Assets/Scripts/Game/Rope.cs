@@ -14,6 +14,9 @@ public class Pendulum : MonoBehaviour
     [SerializeField] private AudioClip chainSwingLeft;
     [SerializeField] private AudioClip chainSwingRight;
 
+    public int score;
+    public int strikes;
+
     private IEventBus _eventBus;
     private float gravity = 9.81f;
 
