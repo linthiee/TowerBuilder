@@ -63,6 +63,8 @@ public class UIGameplay : MonoBehaviour
         if (isPaused)
         {
             Time.timeScale = 1.0f;
+
+            _eventBus.Publish(new EndGameEvent());
             _eventBus.Publish(new ExitToMenuEvent());
         }
     }

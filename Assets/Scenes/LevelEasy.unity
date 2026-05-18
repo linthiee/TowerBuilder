@@ -2941,8 +2941,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8819bd38dcbb51438e791cf4744a035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  difficulty: 0
+  scoreSO: {fileID: 11400000, guid: cb700785078f029419460740f7cd3932, type: 2}
   player: {fileID: 283268556}
   scoreText: {fileID: 420613928}
+  highScoreText: {fileID: 8060389499296681444}
   strikesText: {fileID: 1291482045}
   towerHeightText: {fileID: 889330547}
 --- !u!4 &1760906833
@@ -4346,6 +4349,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+--- !u!114 &8060389499296681444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 662167652730924727, guid: 31d86dbcf73c02149bacf38ae8863911, type: 3}
+  m_PrefabInstance: {fileID: 8060389499296681443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!4 &8546063957916993347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4264058528078185018, guid: b63c65d5943e72945aa66212d4be210a, type: 3}

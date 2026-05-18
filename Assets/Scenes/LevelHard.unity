@@ -3771,6 +3771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8819bd38dcbb51438e791cf4744a035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  difficulty: 2
+  scoreSO: {fileID: 11400000, guid: cb700785078f029419460740f7cd3932, type: 2}
   player: {fileID: 283268556}
   scoreText: {fileID: 1518989507}
   strikesText: {fileID: 1518989506}
