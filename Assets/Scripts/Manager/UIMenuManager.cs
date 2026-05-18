@@ -43,6 +43,13 @@ public class UIMenuManager : MonoBehaviour
         buttonEasy.onClick.AddListener(OnEasyClicked);
         buttonMedium.onClick.AddListener(OnMediumClicked);
         buttonHard.onClick.AddListener(OnHardClicked);
+
+#if UNITY_WEBGL
+        if (buttonExit != null)
+        {
+            buttonExit.gameObject.SetActive(false);
+        }
+#endif
     }
 
     private void OnPanelExitClicked()
